@@ -1,0 +1,1 @@
+appleHow to Comment in CSS. To comment in CSS, simply place your plain text inside /* */ marks.Jul 3, 
