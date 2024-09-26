@@ -41,16 +41,12 @@
     padding: 0 0px;
 }
 
-
 #navbar__logo {
-
-
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 0rem;
     width: 200px;
-
 }
 #navbar__image {
     width: 100px;
@@ -305,6 +301,23 @@
     display: flex;
     height: 20px;
     background: var(--charcoal);
+}
+
+.my_games__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--charcoal);
+    height: var(--seperatorHeight);
+    font-size: var(--seperatorFontSize);
+    color: var(--normalFontColor);
+}
+
+.itch-io__games {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--darkCharcoal);
 }
 
 .footer {   
