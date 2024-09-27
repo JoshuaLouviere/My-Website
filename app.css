@@ -276,8 +276,8 @@
     display: flex;
     width: 60%;
     height: 190%;
-    border: 8px solid purple;
-    text-align: center;
+/*    border: 8px solid purple;
+*/    text-align: center;
     color: var(--normalFontColor);
 }
 
