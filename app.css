@@ -6,12 +6,12 @@
 }
 
 :root {
-    --seperatorHeight: 150px;
-    --seperatorFontSize: 50px;
+    --seperatorHeight: 9.4rem;
+    --seperatorFontSize: 3.2rem;
     --charcoal: #323437;
     --darkCharcoal: #1F1F1F;
     --normalFontColor: #F0F0F0;
-    --navHeight: 100px;
+    --navHeight: 6.25rem;
 }
 
 .navbar {
@@ -180,7 +180,7 @@
 
    width: 100%;         
 /*   border: 8px solid black; */    
-    font-size: 24px;
+    font-size: 1.5rem;
     padding: 0rem 0rem;
     text-decoration: none;
 }
@@ -215,12 +215,12 @@
 }
 
 .interest__img:hover {
-    height: 340px;
+    height: 21.25rem;
     transition: 0.3s ease;
 }
 
 .interest__img:not(:hover) {
-    height: 320px;
+    height: 20rem;
     transition: 0.2s ease;
 }
 
@@ -231,13 +231,14 @@
     height: var(--seperatorHeight);
     background: #323437;
     color: #F0F0F0;
-    font-size: 50px;
+    font-size: 3.2rem;
 }
 
 .interest__description {
     display: flex;
     background: #323437;
-    height: 530px;
+    height: 120%;
+    padding: 2rem 0;
     color: #fff;
     align-items: center;
     width: 100%;
@@ -245,7 +246,7 @@
 }
 
 .interest__text {
-    font-size: 24px;
+    font-size: 1.5rem;
     width: 70%;
 }
 
@@ -262,7 +263,7 @@
 }
 
 .about__body {
-    height: 600px;
+    padding: 2rem 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -272,7 +273,10 @@
 }
 
 .about__description {
+    display: flex;
     width: 60%;
+    height: 190%;
+    border: 8px solid purple;
     text-align: center;
     color: var(--normalFontColor);
 }
@@ -364,7 +368,7 @@
 /*    border: 8px solid orange;*/
     justify-content: center;
     align-items: flex-end;
-    font-size: 24px;
+    font-size: 1.5rem;
 
     margin: 1.3rem 0;
 
