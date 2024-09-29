@@ -425,13 +425,15 @@
  /*   border: 9px solid purple;*/
 }
 
+#pineapple__button {
+    height: 200px;
+}
 
 .game__description {
     display: flex;
     justify-content: center;
     text-align: center;
     padding: 5rem;
-
     width: 80%;
 }
 
