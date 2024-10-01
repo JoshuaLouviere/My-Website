@@ -152,19 +152,19 @@ function playerUpdate(delta) {
 
     player1.x = width / 2 - width / xOffset;
 
-    player1.vsp = h * playerSpeed;
   
+    player1.vsp = h * playerSpeed;
 
-    if (player1.y - player1.h / 2 < 0) {
-        player1.y = player1.h / 2;
+    if (player1.y - player1.h / 2 < 0 && h < 0) {
+        //player1.y = player1.h / 2;
         player1.vsp = 0;
-    } else if (player1.y + player1.h / 2 > height) {
-        player1.y = height - player1.h / 2;
+    } else if (player1.y + player1.h / 2 > height && h > 0) {
+       /* player1.y = height - player1.h / 2;*/
         player1.vsp = 0;
     }
 
-    if (ball.paused == false) {
         var dir = Math.sign(player2.y - ball.y);
+    if (ball.paused == false) {
 
         if (ball.x > width / 2) {
 
@@ -172,18 +172,17 @@ function playerUpdate(delta) {
         } else {
             player2.vsp = 0;
         }
+
     } else {
         player2.vsp = 0;
     }
 
-    // Player 2 Movement ///////////////////////
-    if (player2.y - player2.h / 2 < 0) {
-        player2.y = player2.h / 2;
-        player2.vsp = 0;
-    } else if (player2.y + player2.h / 2 > height) {
-        player2.y = height - player2.h / 2;
-        player2.vsp = 0;
-    } 
+        // Player 2 Movement ///////////////////////
+        if (player2.y - player2.h / 2 < 0 && dir < 0) {
+            player2.vsp = 0;
+        } else if (player2.y + player2.h / 2 > height && dir > 0) {
+            player2.vsp = 0;
+        } 
 
     player2.x = (width / 2) + width / xOffset;
 }
