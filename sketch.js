@@ -11,6 +11,7 @@ var lastLost = -1;
 var playerSpeed = 500;
 
 var scores = [];
+var tut = [];
 
 // ------------------------------------------------------------------------ //
 //
@@ -25,6 +26,7 @@ function ballSetup() {
     ball.hsp = ballSpeed[0];
     ball.color = '#fff';
     ball.paused = true;
+
 }
 
 var pause;
@@ -60,6 +62,9 @@ function setup() {
     player2.color = "#fff";
     ballSetup();
     pauseSetup();
+    tut = [new object(player1.x, height / 3, 0, 0), new object(player1.x, height / 3, 0, 0)];
+    tut[0].text = "<W>";
+    tut[1].text = "<S>";
 
 }
 
@@ -72,8 +77,7 @@ function setup() {
 // ------------------------------------------------------------------------ //
 function windowResized() {
     let w = document.documentElement.clientWidth;
-    scores[0].x = width / 4;
-    scores[1].x = width - width / 4;
+    
     resizeCanvas(w, 500);
 }
 
@@ -147,6 +151,12 @@ function drawDashedLine(amount) {
 //
 // ------------------------------------------------------------------------ //
 function playerUpdate(delta) {
+    tut[0].x = player1.x;
+    tut[1].x = player1.x;
+    tut[0].y = height / 4;
+    tut[1].y = height - height / 4;
+    scores[0].x = width / 4;
+    scores[1].x = width - width / 4;
     var xOffset = 2.4;
     var h = keyIsDown(83) - keyIsDown(87);
 
@@ -166,7 +176,7 @@ function playerUpdate(delta) {
      var dir = Math.sign(player2.y - ball.y);
     if (ball.paused == false) {
 
-        if (ball.x > width / 2) {
+        if (ball.x > width / 2 && ball.hsp > 0) {
 
             player2.vsp = -dir * playerSpeed / 2;
         } else {
@@ -183,7 +193,7 @@ function playerUpdate(delta) {
         } else if (player2.y + player2.h / 2 > height && dir < 0) {
             player2.vsp = 0;
         } 
-    print(dir);
+/*    print(dir);*/
     player2.x = (width / 2) + width / xOffset;
 }
 
@@ -228,20 +238,30 @@ function objectCollision(obj0, obj1) {
 function ballUpdate(dt) {
     if (ball.paused == false) { // Pause functionality
 
-
+        for (var i = 0; i < tut.length; i++) {
+            tut[i].visible = false;
+        }
         var top = ball.y - ball.h / 2 < 0;
         var bottom = ball.y + ball.h / 2 > height;
 
 
         if (top || bottom) {
+            if (top) {
+                ball.y = ball.h / 2;
+            } else if (bottom) {
+                ball.y = height - ball.h / 2;
+            }
+
             ball.vsp *= -1;
 
             var dir = Math.sign(ball.vsp);
             ball.vsp = random(bRangeY[0], bRangeY[1]) * dir;
         }
 
+
         if (objectCollision(ball, player1)) {
 
+            ball.x = player1.x + player1.w / 2 + ball.w / 2;
             ball.hsp *= -1;
             var dir = Math.sign(ball.vsp);
             var pDir = Math.sign(player1.vsp);
@@ -262,7 +282,7 @@ function ballUpdate(dt) {
         }
 
         if (objectCollision(ball, player2)) {
-
+            ball.x = player2.x - player2.w / 2 - ball.w / 2;
             ball.hsp *= -1;
             var dir = Math.sign(ball.vsp);
             var pDir = Math.sign(player2.vsp);
@@ -297,7 +317,10 @@ function ballUpdate(dt) {
         ball.y = height / 2;
         ball.vsp = 0;
         ball.hsp = 0;
-
+        player2.y = height / 2;
+        for (var i = 0; i < tut.length; i++) {
+            tut[i].visible = true;
+        }
         pause.visible = true;
     }
 }
