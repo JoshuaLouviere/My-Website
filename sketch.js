@@ -163,7 +163,7 @@ function playerUpdate(delta) {
         player1.vsp = 0;
     }
 
-        var dir = Math.sign(player2.y - ball.y);
+     var dir = Math.sign(player2.y - ball.y);
     if (ball.paused == false) {
 
         if (ball.x > width / 2) {
@@ -178,12 +178,12 @@ function playerUpdate(delta) {
     }
 
         // Player 2 Movement ///////////////////////
-        if (player2.y - player2.h / 2 < 0 && dir < 0) {
+        if (player2.y - player2.h / 2 < 0 && dir > 0) {
             player2.vsp = 0;
-        } else if (player2.y + player2.h / 2 > height && dir > 0) {
+        } else if (player2.y + player2.h / 2 > height && dir < 0) {
             player2.vsp = 0;
         } 
-
+    print(dir);
     player2.x = (width / 2) + width / xOffset;
 }
 
