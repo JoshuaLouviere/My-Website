@@ -30,7 +30,7 @@
     top: 0;
     z-index: 999;
     transition: transform 0.3s ease;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 .navbar__container {
@@ -102,7 +102,7 @@
 /* ===========================================================================================================*/
 
 .fa-gem {
-    margin-right: 0.5rem;
+    margin-right: 0.5rem;   
 }
 
 .button {
