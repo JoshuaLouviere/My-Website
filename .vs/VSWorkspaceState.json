@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Images",
+    "\\Images\\retro_style",
+    "\\Old-Version"
   ],
-  "SelectedNode": "\\app.css",
+  "SelectedNode": "\\Old-Version\\old_index.html",
   "PreviewInSolutionExplorer": false
 }
